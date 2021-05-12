@@ -2,11 +2,12 @@
   "name": "todo-list",
   "version": "1.0.0",
   "description": "This is a My Todo App created in vanilla JavaScript. My Todo's are going to be objects that you’ll want to dynamically create, which means either using factories or constructors/classes to generate them. Its going to have a title, description, dueDate and priority. This Todo is going to have projects or separate lists of todos. When a user first opens the app, there should be some sort of ‘default’ project to which all of their todos are put. Users should be able to create new projects and choose which project their todos go into. ### Screenshots",
-  "main": "index.js",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "start": "webpack-dev-server --open"
   },
   "repository": {
     "type": "git",
@@ -22,13 +23,25 @@
   "devDependencies": {
     "@babel/core": "^7.14.0",
     "@babel/preset-env": "^7.14.1",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
+    "babel-preset-env": "^1.7.0",
     "css-loader": "^5.2.4",
+    "eslint": "^7.26.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "hint": "^6.1.3",
     "sass": "^1.32.12",
     "sass-loader": "^11.1.0",
     "style-loader": "^2.0.0",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-csstree-validator": "^1.9.0",
+    "stylelint-scss": "^3.19.0",
     "webpack": "^5.37.0",
-    "webpack-cli": "^4.7.0"
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
     "colcade": "^0.2.0",
