@@ -1,21 +1,12 @@
-import _ from 'lodash';
-import './style.css';
-import Bg from './images/wood-bg.jpg';
+import { sayHello } from './todo';
 
-function component() {
-  const element = document.createElement('div');
+// console.log(sayHello('Tendai'));
 
-  // Lodash, currently included
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.classList.add('hello');
+async function getPosts() {
+  const response = await fetch('https://jsonplaceholder.typicode.com/users/1/posts');
 
-  // Add the image to our existing div.
-  const myBg = new Image();
-  myBg.src = Bg;
-
-  element.appendChild(myBg);
-
-  return element;
+  const data = await response.json();
+  return data;
 }
 
-document.body.appendChild(component());
+getPosts().then(posts => console.log(posts));
