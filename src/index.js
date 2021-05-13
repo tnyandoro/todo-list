@@ -1,12 +1,13 @@
-import { sayHello } from './todo';
+import { divide } from 'lodash';
+// import { format, compareAsc } from 'date-fns';
+import { person, sayHello } from './todo';
 
-// console.log(sayHello('Tendai'));
+const datefns = require('date-fns');
 
-async function getPosts() {
-  const response = await fetch('https://jsonplaceholder.typicode.com/users/1/posts');
+const arrDates = [new Date(1985, 5, 30), new Date(2007, 11, 15), new Date()];
 
-  const data = await response.json();
-  return data;
-}
+console.log(arrDates);
 
-getPosts().then(posts => console.log(posts));
+arrDates.forEach((date) => {
+  console.log(datefns.addYears(date, 5));
+});
