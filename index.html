@@ -5,8 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Todo List</title>
+    <!--bootstrap-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="./dist/style.css" />
   </head>
   <body>
+    <h1 class="big-head">The My Todos</h1>
     <div class="all-tasks">
       <h2 class="Projects">My Projects</h2>
       <ul class="projects">
@@ -59,19 +69,56 @@
       </div>
       <div class="new-task-creator">
         <form action="">
-        <input
-          type="text"
-          class="new project"
-          placeholder="New Project"
-          aria-label="create new project"
-        />
-        <button class="btn list">+</button>
-      </form>
+          <input
+            type="text"
+            class="new project"
+            placeholder="New Task Name"
+            aria-label="create a new task"
+          />
+          <br />
+          <div class="form-group">
+            <textarea
+              class="form-control"
+              name="description"
+              id="description"
+              placeholder="Task Description"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="priority-check">Pick Priority</label>
+            <select
+              id="priority-check"
+              class="form-select form-control"
+              data-select-priority
+            >
+          <option value="low">Low</option>
+           <option value="medium">Medium</option>
+            <option value="high">High</option>
+        </select>
+          </div>
+          <input
+            type="date"
+            id="start"
+            name="trip-start"
+            value="2018-07-22"
+            min="2018-01-01"
+            max="2018-12-31"
+          />
+          <button class="btn task">+</button>
+        </form>
       </div>
-        <div class="delete-stuff"></div>
-      </div>
-    
-
-    <script src="./dist/bundle.js"></script>
+      <div class="delete-stuff"></div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+      integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/dist/bundle.js"></script>
   </body>
 </html>

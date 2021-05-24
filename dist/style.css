@@ -1,0 +1,9 @@
+body {
+  color: #000;
+  background-color: #6C38FD;
+  background: url('./src/images/wood-bg.jpg');
+}
+
+.big-head{
+  color: gold;
+}
