@@ -1,4 +1,13 @@
-.hello {
-  color: red;
-  background: url('./images/wood-bg.jpg');
+:root {
+  --clr-primary: #462acc;
+  --clr-secondary: #fff;
+  --clr-dark: #3f3f3f;
+  --clr-warning: #f7b924;
+}
+
+*,
+*::before,
+*::after {
+  font-family: inherit;
+  box-sizing: border-box;
 }
