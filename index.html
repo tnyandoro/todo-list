@@ -2,123 +2,104 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Todo List</title>
-    <!--bootstrap-->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>The MyTodo list</title>
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700,900&display=swap"
       rel="stylesheet"
-      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
-      crossorigin="anonymous"
     />
-    <!--Custom CSS-->
     <link rel="stylesheet" href="./dist/style.css" />
   </head>
+
   <body>
-    <h1 class="big-head">The My Todos</h1>
+    <h1 class="title">The My-Todo</h1>
+
     <div class="all-tasks">
-      <h2 class="Projects">Projects</h2>
-      <ul class="projects">
-        <li class="Default">Default</li>
-        <li>Work</li>
-        <li>School</li>
-        <li>Leisure</li>
+      <h2 class="task-list-title">My lists</h2>
+      <ul class="task-list">
+        <li class="list-name active-list">Youtube</li>
+        <li class="list-name">Work</li>
+        <li class="list-name">Grocery</li>
       </ul>
+
       <form action="">
-        <input
+        <input 
           type="text"
-          class="new project"
-          placeholder="New Project"
-          aria-label="create new project"
+          class="new list"
+          placeholder="new list name"
+          aria-label="new list name"
         />
-        <button class="btn list">+</button>
+        <button class="btn create" aria-label="create new list">+</button>
       </form>
     </div>
 
     <div class="todo-list">
       <div class="todo-header">
-        <h2 class="list-title">Default Tasks</h2>
-        <p class="task-count">3 Tasks remaining</p>
+        <h2 class="list-title">YouTube</h2>
+        <p class="notes">notes</p>
+        <p class="task-count">3 tasks remaining</p>
       </div>
+
       <div class="todo-body">
-        <div class="task">
-          <input type="checkbox" id="task-1" />
-          <label for="task-1">
-            <span class="custom-checkbox"></span>
-            Complete Munipal Project
-          </label>
-        </div>
-        <!-- Task 1  -->
-        <div class="task">
-          <input type="checkbox" id="task-1" />
-          <label for="task-1">
-            <span class="custom-checkbox"></span>
-            Complete the todo project
-          </label>
-        </div>
-        <!-- Task 1  -->
-        <div class="task">
-          <input type="checkbox" id="task-1" />
-          <label for="task-1">
-            <span class="custom-checkbox"></span>
-            Complete the todo testing
-          </label>
-        </div>
-        <!-- Task 1  -->
-      </div>
-      <div class="new-task-creator">
-        <form action="">
-          <input
-            type="text"
-            class="new project"
-            placeholder="New Task Name"
-            aria-label="create a new task"
-          />
-          <br />
-          <div class="form-group">
-            <textarea
-              class="form-control"
-              name="description"
-              id="description"
-              placeholder="Task Description"
-            ></textarea>
+        <div class="tasks">
+          <div class="task">
+            <input 
+              type="checkbox"
+              id="task-1"
+            />
+            <label for="task-1">
+              <span class="custom-checkbox"></span>
+              record todo list video
+            </label>
           </div>
-          <div class="form-group">
-            <label for="priority-check">Pick Priority</label>
-            <select
-              id="priority-check"
-              class="form-select form-control"
-              data-select-priority
-            >
-              <option value="low">Low</option>
-              <option value="medium">Medium</option>
-              <option value="high">High</option>
-            </select>
-          </div>
-          <input
-            type="date"
-            id="start"
-            name="trip-start"
-            value="2018-07-22"
-            min="2018-01-01"
-            max="2018-12-31"
-          />
-          <button class="btn task">+</button>
-        </form>
+          <!-- /task-1 -->
+
+          <div class="task">
+              <input 
+                type="checkbox"
+                id="task-2"
+              />
+              <label for="task-2">
+                <span class="custom-checkbox"></span>
+                another task
+              </label>
+            </div>
+            <!-- /task-2 -->
+
+            <div class="task">
+                <input 
+                  type="checkbox"
+                  id="task-3"
+                />
+                <label for="task-3">
+                  <span class="custom-checkbox"></span>
+                  a third task
+                </label>
+              </div>
+              <!-- /task-3 -->
+        </div>
+
+        <div class="new-task-creator">
+            <form action="">
+                <input 
+                  type="text"
+                  class="new task"
+                  placeholder="new task name"
+                  aria-label="new task name"
+                />
+                <button class="btn create" aria-label="create new task">+</button>
+              </form>
+        </div>
+
+        <div class="delete-stuff">
+          <button class="btn delete">Clear completed tasks</button>
+          <button class="btn delete">Delete list</button>
+        </div>
       </div>
-      <div class="delete-stuff"></div>
     </div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
-      integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
-      crossorigin="anonymous"
-    ></script>
-    <script src="/dist/bundle.js"></script>
+
+   
+    </div>
   </body>
 </html>
