@@ -17,7 +17,6 @@ body {
   font-family: "Work Sans", sans-serif;
   font-weight: 300;
   font-size: 1.5rem;
-  background-color: var(--clr-primary);
   color: var(--clr-light);
   display: grid;
   grid: "header header header header" auto "...... lists  active ......" auto/1fr minmax(100px, 300px) minmax(250px, 500px) 1fr;
@@ -26,7 +25,7 @@ body {
 .title {
   grid-area: header;
   text-align: center;
-  font-size: calc(7vw + 2rem);
+  font-size: calc(4vw + 2rem);
   font-weight: 900;
   color: rgba(0, 0, 0, 0.1);
   letter-spacing: 2px;
@@ -150,6 +149,7 @@ form {
   grid-area: active;
   background: var(--clr-light);
   color: var(--clr-dark);
+  border-radius: 9px;
 }
 
 .todo-header {
