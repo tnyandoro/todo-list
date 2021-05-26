@@ -14,12 +14,12 @@
 
 body {
   margin: 0;
-  font-family: "Work Sans", sans-serif;
+  font-family: "Calibri", sans-serif;
   font-weight: 300;
   font-size: 1.5rem;
   color: var(--clr-light);
   display: grid;
-  grid: "header header header header" auto "...... lists  active ......" auto/1fr minmax(100px, 300px) minmax(250px, 500px) 1fr;
+  grid: "header header header header" auto "...... lists  active ......" auto/1fr minmax(100px, 300px) minmax(250px, 900px) 1fr;
 }
 
 .title {
@@ -27,9 +27,8 @@ body {
   text-align: center;
   font-size: calc(4vw + 2rem);
   font-weight: 900;
-  color: rgba(0, 0, 0, 0.1);
   letter-spacing: 2px;
-  margin: -0.3em 0 0.5em;
+  margin: -0.2em 0 0.5em;
 }
 
 .all-tasks {
@@ -133,7 +132,7 @@ form {
 }
 
 .new.list {
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .new.task {
@@ -149,7 +148,8 @@ form {
   grid-area: active;
   background: var(--clr-light);
   color: var(--clr-dark);
-  border-radius: 9px;
+  border-radius: 25px;
+  box-shadow: 5px 5px rgb(31, 42, 32);
 }
 
 .todo-header {
@@ -176,6 +176,7 @@ form {
 
 .new-task-creator .create {
   color: var(--clr-primary);
+  
 }
 
 [type="checkbox"] {
