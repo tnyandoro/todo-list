@@ -1,4 +1,6 @@
 const projectsContainer = document.querySelector('[data-projects]');
+const newProjectForm = document.querySelector('[data-new-project-form]');
+const newProjectInput = document.querySelector('[data-new-project-Input]');
 
 let projects = [{
   id: 1,
