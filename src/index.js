@@ -3,4 +3,6 @@ import { divide } from 'lodash';
 import { todoTask } from './todo';
 import Project from './projects';
 
+const projectsContainer = document.querySelector('[data-projects]');
+
 let projects = [];
