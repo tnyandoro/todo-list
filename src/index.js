@@ -18,5 +18,6 @@ function render() {
     const projectElement = document.createElement('li');
     projectElement.classList.add('project-name');
     projectElement.innerText = project;
+    projectsContainer.appendChild(projectElement);
   });
 }
