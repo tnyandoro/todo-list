@@ -5,13 +5,16 @@ import Project from './projects';
 
 const projectsContainer = document.querySelector('[data-projects]');
 
-const projects = [];
+let projects = [];
 
 function clearElement(element) {
 
 }
 
 function render() {
-  <li class="project-name">Study</li>
+  <li class="project-name">Study</li>;
   clearElement(projectsContainer);
+  projectsContainer(project => {
+    const projectElement = document.createElement('li');
+  });
 }
