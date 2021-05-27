@@ -11,6 +11,10 @@ let projects = [{
   name: 'todo',
 }];
 
+newProjectForm.addEventListener('submit', e => {
+  
+})
+
 function clearElement(element) {
   while (element.firstChild) {
     element.removeChild(element.firstChild);
