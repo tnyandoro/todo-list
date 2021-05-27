@@ -12,8 +12,11 @@ let projects = [{
 }];
 
 newProjectForm.addEventListener('submit', e => {
-  
-})
+  e.preventDefault();
+  const projectName = newProjectInput.value;
+  if (projectName == null || projectName === '') return
+  const project = createList(projectName);
+});
 
 function clearElement(element) {
   while (element.firstChild) {
