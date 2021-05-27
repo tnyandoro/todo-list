@@ -2,7 +2,7 @@ const projectsContainer = document.querySelector('[data-projects]');
 const newProjectForm = document.querySelector('[data-new-project-form]');
 const newProjectInput = document.querySelector('[data-new-project-Input]');
 
-let projects = [{
+const projects = [{
   id: 1,
   name: 'name',
 },
@@ -10,13 +10,6 @@ let projects = [{
   id: 2,
   name: 'todo',
 }];
-
-newProjectForm.addEventListener('submit', e => {
-  e.preventDefault();
-  const projectName = newProjectInput.value;
-  if (projectName == null || projectName === '') return
-  const project = createList(projectName);
-});
 
 function clearElement(element) {
   while (element.firstChild) {
@@ -34,5 +27,18 @@ function render() {
     projectsContainer.append(projectElement);
   });
 }
+
+function createProject(name) {
+  return { id: Date.now().toString(), name, tasks: [] };
+}
+newProjectForm.addEventListener('submit', e => {
+  e.preventDefault();
+  const projectName = newProjectInput.value;
+  if (projectName == null || projectName === '') return;
+  const project = createProject(projectName);
+  newProjectInput.value = null;
+  projects.push(project);
+  render();
+});
 
 render();
