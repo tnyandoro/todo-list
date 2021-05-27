@@ -12,5 +12,6 @@ function clearElement(element) {
 }
 
 function render() {
+  <li class="project-name">Study</li>
   clearElement(projectsContainer);
 }
