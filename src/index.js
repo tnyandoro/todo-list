@@ -1,11 +1,14 @@
 const projectsContainer = document.querySelector('[data-projects]');
 
-let projects = ['name', 'todo'];
+let projects = [{
+  id:1,
+  name: 'name'
+}];
 
 function clearElement(element) {
-while (element.firstChild) {
-  element.removeChild(element.firstChild);
-}
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
 }
 
 function render() {
