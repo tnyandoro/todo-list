@@ -9,7 +9,7 @@
       href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700,900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./src/css/bootstrap.css" />
+    <link rel="stylesheet" href="./src/css/bootstrap5.css" />
     <link rel="stylesheet" href="./dist/style.css" />
   </head>
 
@@ -17,26 +17,26 @@
     <h1 class="title">The My-Todo</h1>
 
     <div class="all-tasks">
-      <h2 class="task-list-title">My Projects</h2>
-      <ul class="task-list">
-        <li class="list-name active-list">Pray</li>
-        <li class="list-name">Study</li>
-        <li class="list-name">Work on Project</li>
+      <h2 class="task-project-title">Projects</h2>
+      <ul class="task-project" data-project>
+        <li class="project-name active-list">Pray</li>
+        <li class="project-name">Study</li>
+        <li class="project-name">Work on Project</li>
       </ul>
 
       <form action="submit">
         <input
           type="text"
-          class="new list"
-          placeholder="new list name"
-          aria-label="new list name"
+          class="new project"
+          placeholder="new project name"
+          aria-label="new project name"
         />
         <button
           type="submit"
-          class="btn btn-primary create"
-          aria-label="create new list"
+          class="btn btn-success btn-md create"
+          aria-label="create new project"
         >
-          +
+          create new
         </button>
       </form>
     </div>
@@ -117,19 +117,22 @@
             </div>
 
             <button
-              class="btn btn-primary btn create"
+              class="btn btn-success btn create"
               aria-label="create new task"
             >
               Create Task
             </button>
           </form>
-        </div>
 
-        <div class="delete-stuff">
-          <button class="btn btn-warning delete">Clear completed tasks</button>
-          <button class="btn btn-danger delete">Delete list</button>
+          <div class="delete-stuff">
+            <button class="btn btn-warning delete">
+              Clear completed tasks
+            </button>
+            <button class="btn btn-danger delete">Delete list</button>
+          </div>
         </div>
       </div>
     </div>
+    <script src="./dist/bundle.js"></script>
   </body>
 </html>

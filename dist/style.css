@@ -18,8 +18,11 @@ body {
   font-weight: 300;
   font-size: 1.5rem;
   color: var(--clr-light);
+  
   display: grid;
-  grid: "header header header header" auto "...... lists  active ......" auto/1fr minmax(100px, 300px) minmax(250px, 900px) 1fr;
+  grid: "header header header header" auto 
+  "...... lists  active ......" auto/
+  1fr minmax(100px, 300px) minmax(250px, 900px) 1fr;
 }
 
 .title {
@@ -29,10 +32,17 @@ body {
   font-weight: 900;
   letter-spacing: 2px;
   margin: -0.2em 0 0.5em;
+  color: #23f;
 }
 
 .all-tasks {
   grid-area: lists;
+  border-radius:10px;
+  padding: 10px;
+  background-color:#6d30fe;
+  padding: 10px 10px 20px 10px;
+  border: 1px solid #BFBFBF;
+  box-shadow: 10px 10px 5px #aaaaaa;
 }
 
 .task-list {
@@ -42,11 +52,11 @@ body {
   padding-left: 1.1em;
 }
 
-.list-name {
+.project-name {
   cursor: pointer;
 }
 
-.list-name:hover {
+.project-name:hover {
   opacity: 0.7;
 }
 
@@ -56,16 +66,15 @@ form {
 
 .btn {
   cursor: pointer;
-  background: 0;
   border: 0;
   padding: 0;
   color: inherit;
 }
 
 .btn.create {
-  font-size: 1.5rem;
+  font-size: 0.9rem;
   font-weight: 900;
-  margin-right: 0.25em;
+  margin-right: 0.15em;
   transition: opacity 250ms ease-in;
 }
 
@@ -148,8 +157,10 @@ form {
   grid-area: active;
   background: var(--clr-light);
   color: var(--clr-dark);
-  border-radius: 25px;
-  box-shadow: 5px 5px rgb(31, 42, 32);
+  border-radius: 15px;
+  padding-left: 5px;
+  border: 1px solid #BFBFBF;
+  box-shadow: 10px 10px 5px #aaaaaa;
 }
 
 .todo-header {
