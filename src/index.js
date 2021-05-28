@@ -3,8 +3,10 @@ const newProjectForm = document.querySelector('[data-new-project-form]');
 const newProjectInput = document.querySelector('[data-new-project-input]');
 
 const LOCAL_STORAGE_PROJECT_KEY = 'task.projects';
+const LOCAL_STORAGE_SELECTED_PROJECT_ID_KEY = 'task.selectedProjectId';
 
-const projects = JSON.parse(localStorage.getItem(LOCAL_STORAGE_PROJECT_KEY) || []);
+const projects = JSON.parse(localStorage.getItem(LOCAL_STORAGE_PROJECT_KEY)) || [];
+const selectedProjectId = localStorage.getItem(LOCAL_STORAGE_SELECTED_PROJECT_ID_KEY);
 
 function clearElement(element) {
   while (element.firstChild) {
@@ -13,7 +15,7 @@ function clearElement(element) {
 }
 
 function save() {
-  localStorage.setItem(LOCAL_STORAGE_PROJECT_KEY, JSON.stringfy(projects));
+  localStorage.setItem(LOCAL_STORAGE_PROJECT_KEY, JSON.stringify(projects));
 }
 
 function render() {
@@ -23,7 +25,7 @@ function render() {
     projectElement.dataset.projectId = project.id;
     projectElement.classList.add('project-name');
     projectElement.innerText = project.name;
-    projectsContainer.appendChild(projectElement);
+    if (project.id === selectedProjectId) projectsContainer.appendChild(projectElement);
   });
 }
 
