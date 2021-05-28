@@ -1,15 +1,10 @@
 const projectsContainer = document.querySelector('[data-projects]');
 const newProjectForm = document.querySelector('[data-new-project-form]');
-const newProjectInput = document.querySelector('[data-new-project-Input]');
+const newProjectInput = document.querySelector('[data-new-project-input]');
 
-const projects = [{
-  id: 1,
-  name: 'name',
-},
-{
-  id: 2,
-  name: 'todo',
-}];
+const LOCAL_STORAGE_PROJECT_KEY = 'task.projects';
+
+const projects = [];
 
 function clearElement(element) {
   while (element.firstChild) {
@@ -23,14 +18,15 @@ function render() {
     const projectElement = document.createElement('li');
     projectElement.dataset.projectId = project.id;
     projectElement.classList.add('project-name');
-    projectElement.innerText = project;
-    projectsContainer.append(projectElement);
+    projectElement.innerText = project.name;
+    projectsContainer.appendChild(projectElement);
   });
 }
 
 function createProject(name) {
   return { id: Date.now().toString(), name, tasks: [] };
 }
+
 newProjectForm.addEventListener('submit', e => {
   e.preventDefault();
   const projectName = newProjectInput.value;
