@@ -25,7 +25,10 @@ function render() {
     projectElement.dataset.projectId = project.id;
     projectElement.classList.add('project-name');
     projectElement.innerText = project.name;
-    if (project.id === selectedProjectId) projectsContainer.appendChild(projectElement);
+    if (project.id === selectedProjectId) {
+      projectElement.classList.add('active-project');
+    }
+    projectsContainer.appendChild(projectElement);
   });
 }
 
