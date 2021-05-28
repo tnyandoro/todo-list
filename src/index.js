@@ -12,6 +12,10 @@ function clearElement(element) {
   }
 }
 
+function save() {
+  localStorage.setItem(JSON.stringfy(projects));
+}
+
 function render() {
   clearElement(projectsContainer);
   projects.forEach(project => {
