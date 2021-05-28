@@ -13,7 +13,7 @@ function clearElement(element) {
 }
 
 function save() {
-  localStorage.setItem(JSON.stringfy(projects));
+  localStorage.setItem(LOCAL_STORAGE_PROJECT_KEY, JSON.stringfy(projects));
 }
 
 function render() {
@@ -25,6 +25,11 @@ function render() {
     projectElement.innerText = project.name;
     projectsContainer.appendChild(projectElement);
   });
+}
+
+function saveAndRender() {
+  save();
+  render();
 }
 
 function createProject(name) {
@@ -39,6 +44,7 @@ newProjectForm.addEventListener('submit', e => {
   newProjectInput.value = null;
   projects.push(project);
   render();
+  saveAndRender();
 });
 
 render();
