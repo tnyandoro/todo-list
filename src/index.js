@@ -4,7 +4,7 @@ const newProjectInput = document.querySelector('[data-new-project-input]');
 
 const LOCAL_STORAGE_PROJECT_KEY = 'task.projects';
 
-const projects = [];
+const projects = JSON.parse(localStorage.getItem(LOCAL_STORAGE_PROJECT_KEY) || []);
 
 function clearElement(element) {
   while (element.firstChild) {
