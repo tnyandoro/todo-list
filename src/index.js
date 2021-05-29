@@ -6,6 +6,7 @@ const projectDisplayContainer = document.querySelector('[data-project-display-co
 const projectTitleElement = document.querySelector('[data-project-title]');
 const projectCountElement = document.querySelector('[data-project-count]');
 const tasksContainer = document.querySelector('[data-tasks]');
+const taskTemplate = document.getElementById('task-template');
 
 const LOCAL_STORAGE_PROJECT_KEY = 'task.projects';
 const LOCAL_STORAGE_SELECTED_PROJECT_ID_KEY = 'task.selectedProjectId';
@@ -41,6 +42,12 @@ function renderTaskCount(selectedProject) {
   const incompleteTaskCount = selectedProject.tasks.filter(task => !task.complete).length;
   const taskString = incompleteTaskCount === 1 ? 'task' : 'tasks';
   projectCountElement.innerText = `${incompleteTaskCount} ${taskString} remaining`;
+}
+
+function renderTasks(selectedProject) {
+  selectedProject.tasks.forEach(task => {
+    const taskElement = document.importNode(taskTemplate);
+  });
 }
 
 function render() {
