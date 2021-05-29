@@ -1,6 +1,7 @@
 const projectsContainer = document.querySelector('[data-projects]');
 const newProjectForm = document.querySelector('[data-new-project-form]');
 const newProjectInput = document.querySelector('[data-new-project-input]');
+const deleteProjectButton = document.querySelector('[data-delete-project-button]');
 
 const LOCAL_STORAGE_PROJECT_KEY = 'task.projects';
 const LOCAL_STORAGE_SELECTED_PROJECT_ID_KEY = 'task.selectedProjectId';
@@ -41,6 +42,12 @@ function saveAndRender() {
 function createProject(name) {
   return { id: Date.now().toString(), name, tasks: [] };
 }
+
+deleteProjectButton.addEventListener('click', e => {
+  projects = projects.filter(project => project.id !== selectedProjectId);
+  selectedProjectId = null;
+  saveAndRender();
+});
 
 projectsContainer.addEventListener('click', e => {
   if (e.target.tagName.toLowerCase() === 'li') {
