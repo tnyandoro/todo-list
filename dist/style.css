@@ -152,7 +152,7 @@ form {
   font-weight: 700;
 }
 
-.todo-list {
+.todo-project {
   --spacer: 2rem;
   grid-area: active;
   background: var(--clr-light);
