@@ -24,8 +24,7 @@ function save() {
   localStorage.setItem(LOCAL_STORAGE_SELECTED_PROJECT_ID_KEY, selectedProjectId);
 }
 
-function render() {
-  clearElement(projectsContainer);
+function renderProjects() {
   projects.forEach(project => {
     const projectElement = document.createElement('li');
     projectElement.dataset.projectId = project.id;
@@ -36,6 +35,11 @@ function render() {
     }
     projectsContainer.appendChild(projectElement);
   });
+}
+
+function render() {
+  clearElement(projectsContainer);
+  renderProjects();
 }
 
 function saveAndRender() {
