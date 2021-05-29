@@ -37,6 +37,10 @@ function renderProjects() {
   });
 }
 
+function renderTaskCount(selectedProject) {
+const incompleteTasks = selectedProject.tasks.filter(task => !task.complete);
+}
+
 function render() {
   clearElement(projectsContainer);
   renderProjects();
@@ -47,6 +51,7 @@ function render() {
   } else {
     projectDisplayContainer.style.display = '';
     projectTitleElement.innerText = selectedProject.name;
+    renderTaskCount(selectedProject);
   }
 }
 
