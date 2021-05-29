@@ -2,6 +2,8 @@ const projectsContainer = document.querySelector('[data-projects]');
 const newProjectForm = document.querySelector('[data-new-project-form]');
 const newProjectInput = document.querySelector('[data-new-project-input]');
 const deleteProjectButton = document.querySelector('[data-delete-project-button]');
+const projectDisplayContainer = document.querySelector('[data-project-display-container]');
+const projectTitleElement = document.querySelector('[data-project-title]');
 
 const LOCAL_STORAGE_PROJECT_KEY = 'task.projects';
 const LOCAL_STORAGE_SELECTED_PROJECT_ID_KEY = 'task.selectedProjectId';
