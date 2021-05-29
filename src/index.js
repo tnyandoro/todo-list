@@ -38,7 +38,9 @@ function renderProjects() {
 }
 
 function renderTaskCount(selectedProject) {
-const incompleteTasks = selectedProject.tasks.filter(task => !task.complete);
+  const incompleteTaskCount = selectedProject.tasks.filter(task => !task.complete).length;
+  const taskString = incompleteTaskCount === 1 ? 'task' : 'tasks';
+  projectCountElement.innerText = `${incompleteTaskCount} ${taskString} remaining`;
 }
 
 function render() {
@@ -52,6 +54,8 @@ function render() {
     projectDisplayContainer.style.display = '';
     projectTitleElement.innerText = selectedProject.name;
     renderTaskCount(selectedProject);
+    clearElement(tasksContainer);
+    renderTasks(selectedProject);
   }
 }
 
