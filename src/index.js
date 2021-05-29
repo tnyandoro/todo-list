@@ -40,6 +40,14 @@ function renderProjects() {
 function render() {
   clearElement(projectsContainer);
   renderProjects();
+
+  const selectedProject = projects.find(project => project.id === selectedProjectId);
+  if (selectedProjectId == null) {
+    projectDisplayContainer.style.display = 'none';
+  } else {
+    projectDisplayContainer.style.display = '';
+    projectTitleElement.innerText = selectedProject.name;
+  }
 }
 
 function saveAndRender() {
