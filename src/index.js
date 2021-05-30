@@ -7,6 +7,8 @@ const projectTitleElement = document.querySelector('[data-project-title]');
 const projectCountElement = document.querySelector('[data-project-count]');
 const tasksContainer = document.querySelector('[data-tasks]');
 const taskTemplate = document.getElementById('task-template');
+const newTaskForm = document.querySelector('[data-new-task-form]');
+const newTaskInput = document.querySelector('[data-new-task-input]');
 
 const LOCAL_STORAGE_PROJECT_KEY = 'task.projects';
 const LOCAL_STORAGE_SELECTED_PROJECT_ID_KEY = 'task.selectedProjectId';
@@ -86,6 +88,14 @@ function createProject(name) {
   };
 }
 
+function createTask(name) {
+  return {
+    id: Date.now().toString(),
+    name,
+    complete: false,
+  };
+}
+
 deleteProjectButton.addEventListener('click', e => {
   projects = projects.filter(project => project.id !== selectedProjectId);
   selectedProjectId = null;
@@ -107,6 +117,17 @@ newProjectForm.addEventListener('submit', e => {
   newProjectInput.value = null;
   projects.push(project);
   render();
+  saveAndRender();
+});
+
+newTaskForm.addEventListener('submit', e => {
+  e.preventDefault();
+  const taskName = newTaskInput.value;
+  if (taskName == null || taskName === '') return;
+  const task = createTask(taskName);
+  newTaskInput.value = null;
+  const selectedProject = projects.find(project => project.id === selectedProjectId);
+  selectedProject.tasks.push(task);
   saveAndRender();
 });
 
