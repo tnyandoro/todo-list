@@ -46,7 +46,14 @@ function renderTaskCount(selectedProject) {
 
 function renderTasks(selectedProject) {
   selectedProject.tasks.forEach(task => {
-    const taskElement = document.importNode(taskTemplate);
+    const taskElement = document.importNode(taskTemplate.content, true);
+    const checkbox = taskElement.querySelector('input');
+    checkbox.id = task.id;
+    checkbox.checked = task.complete;
+    const label = taskElement.querySelector('label');
+    label.htmlFor = task.id;
+    label.append(task.name);
+    tasksContainer.appendChild(taskElement);
   });
 }
 
@@ -72,7 +79,11 @@ function saveAndRender() {
 }
 
 function createProject(name) {
-  return { id: Date.now().toString(), name, tasks: [] };
+  return {
+    id: Date.now().toString(),
+    name,
+    tasks: [],
+  };
 }
 
 deleteProjectButton.addEventListener('click', e => {
