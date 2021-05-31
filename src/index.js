@@ -9,6 +9,10 @@ const tasksContainer = document.querySelector('[data-tasks]');
 const taskTemplate = document.getElementById('task-template');
 const newTaskForm = document.querySelector('[data-new-task-form]');
 const newTaskInput = document.querySelector('[data-new-task-input]');
+const newTaskDescription = document.querySelector('[data-new-task-description]');
+const newTaskDate = document.querySelector('[data-new-task-date]');
+const newTaskPriority = document.querySelector('[data-new-task-priority]');
+const clearCompleteTasksButton = document.querySelector('[data-clear-complete-tasks-button]');
 
 const LOCAL_STORAGE_PROJECT_KEY = 'task.projects';
 const LOCAL_STORAGE_SELECTED_PROJECT_ID_KEY = 'task.selectedProjectId';
@@ -130,12 +134,26 @@ newProjectForm.addEventListener('submit', e => {
   saveAndRender();
 });
 
+clearCompleteTasksButton.addEventListener('click', e => {
+  const selectedProject = projects.find(project => project.id === selectedProjectId);
+  selectedProject.tasks = selectedProject.tasks.filter(task => !task.complete);
+  saveAndRender();
+});
+
 newTaskForm.addEventListener('submit', e => {
   e.preventDefault();
   const taskName = newTaskInput.value;
-  if (taskName == null || taskName === '') return;
-  const task = createTask(taskName);
+  const taskDate = newTaskDate.value;
+  const taskDescription = newTaskDescription.value;
+  const taskPriority = newTaskPriority.value;
+
+
+  if (!(taskName || taskDate || taskDescription || taskPriority)) return;
+  const task = createTask();
+  // if (task == null || task === '') return;
   newTaskInput.value = null;
+  newTaskDate.value = null;
+  
   const selectedProject = projects.find(project => project.id === selectedProjectId);
   selectedProject.tasks.push(task);
   saveAndRender();

@@ -19,9 +19,7 @@
     <div class="all-tasks">
       <h2 class="task-project-title">Projects</h2>
       <ul class="task-project" data-projects>
-        <!-- <li class="project-name active-project">Pray</li>
-        <li class="project-name">Study</li>
-        <li class="project-name">Work on Project</li> -->
+      
       </ul>
 
       <form action="" data-new-project-form>
@@ -50,34 +48,7 @@
       </div>
 
       <div class="todo-body form-check">
-        <div class="tasks" data-tasks>
-          <div class="task">
-            <input type="checkbox" id="task-1" />
-            <label for="task-1">
-              <span class="custom-checkbox"></span>
-              Study the word
-            </label>
-          </div>
-          <!-- /task-1 -->
-
-          <div class="task">
-            <input type="checkbox" id="task-2" />
-            <label for="task-2">
-              <span class="custom-checkbox"></span>
-              Meditate
-            </label>
-          </div>
-          <!-- /task-2 -->
-
-          <div class="task">
-            <input type="checkbox" id="task-3" />
-            <label for="task-3">
-              <span class="custom-checkbox"></span>
-              Worship
-            </label>
-          </div>
-          <!-- /task-3 -->
-        </div>
+        <div class="tasks" data-tasks></div>
 
         <div class="new-task-creator">
           <form class="bs-components" action="" data-new-task-form>
@@ -126,21 +97,26 @@
           </form>
 
           <div class="delete-stuff">
-            <button class="btn btn-warning delete">
+            <button
+              class="btn btn-warning delete"
+              data-clear-complete-tasks-button
+            >
               Clear completed tasks
             </button>
-            <button class="btn btn-danger delete" data-delete-project-button>Delete list</button>
+            <button class="btn btn-danger delete" data-delete-project-button>
+              Delete list
+            </button>
           </div>
         </div>
       </div>
     </div>
     <template id="task-template">
       <div class="task">
-            <input type="checkbox" />
-            <label>
-              <span class="custom-checkbox"></span>
-            </label>
-          </div>
+        <input type="checkbox" />
+        <label>
+          <span class="custom-checkbox"></span>
+        </label>
+      </div>
     </template>
     <script src="./src/index.js"></script>
     <!-- <script src="./dist/bundle.js"></script> -->
