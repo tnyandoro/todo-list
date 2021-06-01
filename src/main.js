@@ -20,7 +20,7 @@ const LOCAL_STORAGE_SELECTED_PROJECT_ID_KEY = 'task.selectedProjectId';
 let projects = JSON.parse(localStorage.getItem(LOCAL_STORAGE_PROJECT_KEY)) || [];
 let selectedProjectId = localStorage.getItem(LOCAL_STORAGE_SELECTED_PROJECT_ID_KEY);
 
-function clearElement(element) {
+export default function clearElement(element) {
   while (element.firstChild) {
     element.removeChild(element.firstChild);
   }
@@ -137,9 +137,8 @@ tasksContainer.addEventListener('click', e => {
 newProjectForm.addEventListener('submit', e => {
   e.preventDefault();
   const projectName = newProjectInput.value;
-  const id = Date.now().toString();
   if (projectName == null || projectName === '') return;
-  const project = createProject(projectName, id);
+  const project = createProject(projectName);
   newProjectInput.value = null;
   projects.push(project);
   render();

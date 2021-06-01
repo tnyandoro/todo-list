@@ -74,6 +74,7 @@ form {
 .btn.create {
   font-size: 0.9rem;
   font-weight: 900;
+  margin-top: 1.5rem;
   margin-right: 0.15em;
   transition: opacity 250ms ease-in;
 }
