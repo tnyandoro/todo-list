@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 const projectsContainer = document.querySelector('[data-projects]');
 const newProjectForm = document.querySelector('[data-new-project-form]');
 const newProjectInput = document.querySelector('[data-new-project-input]');
@@ -9,9 +10,11 @@ const tasksContainer = document.querySelector('[data-tasks]');
 const taskTemplate = document.getElementById('task-template');
 const newTaskForm = document.querySelector('[data-new-task-form]');
 const newTaskInput = document.querySelector('[data-new-task-input]');
+
 const newTaskDescription = document.querySelector('[data-new-task-description]');
 const newTaskDate = document.querySelector('[data-new-task-date]');
 const newTaskPriority = document.querySelector('[data-new-task-priority]');
+
 const clearCompleteTasksButton = document.querySelector('[data-clear-complete-tasks-button]');
 
 const LOCAL_STORAGE_PROJECT_KEY = 'task.projects';
@@ -57,9 +60,12 @@ function renderTasks(selectedProject) {
     checkbox.id = task.id;
     checkbox.checked = task.complete;
     const label = taskElement.querySelector('label');
+    const body = taskElement.querySelector('div');
     label.htmlFor = task.id;
     label.append(task.name);
-    tasksContainer.appendChild(taskElement);
+    body.append(`${task.date} `);
+    body.append(`${task.priority} `);
+    tasksContainer.append(taskElement);
   });
 }
 
@@ -92,13 +98,22 @@ function createProject(name) {
   };
 }
 
+function editTask(task, label) {
+  newTaskInput.value = task.name;
+  newTaskDate.value = task.date;
+  newTaskPriority.value = task.priority;
+  newTaskDescription.value = task.description;
+  task.id = null;
+}
+
 const createTask = (id, name, date, priority, description, complete) => {
   if (newTaskInput || newTaskDate || newTaskPriority || newTaskDescription) {
-    id = Date.now().toString(),
-    name = newTaskInput.value,
-    date = newTaskDate.value,
-    priority = newTaskPriority.value,
-    description = newTaskDescription.value,
+    // eslint-disable-next-line no-unused-expressions
+    id = Date.now().toString();
+    name = newTaskInput.value;
+    date = newTaskDate.value;
+    priority = newTaskPriority.value;
+    description = newTaskDescription.value;
     complete = false;
   }
   return {
