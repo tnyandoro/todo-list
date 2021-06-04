@@ -53,6 +53,23 @@ function renderTaskCount(selectedProject) {
   projectCountElement.innerText = `${incompleteTaskCount} ${taskString} remaining`;
 }
 
+function editTask(task, label) {
+  newTaskInput.value = task.name;
+  newTaskDate.value = task.date;
+  newTaskPriority.value = task.priority;
+  newTaskDescription.value = task.description;
+  task.id = null;
+
+  newTaskForm.addEventListener('submit', () => {
+    task.name = newTaskInput.value;
+    task.date = newTaskDate.value;
+    task.priority = newTaskPriority.value;
+    task.description = newTaskDescription.value;
+    label.innerHTML = `${task.name}, ${task.date}, ${task.priority}, ${task.description}`;
+    saveAndRender();
+  });
+}
+
 function renderTasks(selectedProject) {
   selectedProject.tasks.forEach(task => {
     const taskElement = document.importNode(taskTemplate.content, true);
@@ -65,6 +82,14 @@ function renderTasks(selectedProject) {
     label.append(task.name);
     body.append(`${task.date} `);
     body.append(`${task.priority} `);
+    body.append(`${task.description} `);
+
+    const editButton = document.createElement('button');
+    editButton.innerText = 'Edit';
+    editButton.classList.add('edit');
+    editButton.addEventListener('click', editTask(task, label));
+    const todoTask = taskElement.querySelector('.todo');
+    todoTask.append(editButton);
     tasksContainer.append(taskElement);
   });
 }
@@ -96,14 +121,6 @@ function createProject(name) {
     name,
     tasks: [],
   };
-}
-
-function editTask(task, label) {
-  newTaskInput.value = task.name;
-  newTaskDate.value = task.date;
-  newTaskPriority.value = task.priority;
-  newTaskDescription.value = task.description;
-  task.id = null;
 }
 
 const createTask = (id, name, date, priority, description, complete) => {
