@@ -94,6 +94,7 @@ function createProject(name) {
 
 const createTask = (id, name, date, priority, description, complete) => {
   if (newTaskInput || newTaskDate || newTaskPriority || newTaskDescription) {
+    // eslint-disable-next-line no-unused-expressions
     id = Date.now().toString(),
     name = newTaskInput.value,
     date = newTaskDate.value,

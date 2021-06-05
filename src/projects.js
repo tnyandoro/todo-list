@@ -1,4 +1,3 @@
-
 import { clearElement, renderTasks } from './main.js';
 
 const LOCAL_STORAGE_LIST_KEY = 'task.lists';
@@ -21,7 +20,6 @@ export function save() {
 }
 
 export const createList = (input, id) => ({ id, name: input, tasks: [] });
-
 
 export function renderLists() {
   lists.forEach(list => {
@@ -88,3 +86,4 @@ if (deleteListButton) {
     selectedListId = null;
     saveAndRender();
   });
+}
