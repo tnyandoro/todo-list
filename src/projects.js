@@ -1,4 +1,4 @@
-import { clearElement, renderTasks } from './main.js';
+import { clearElement, renderTasks } from './main';
 
 const LOCAL_STORAGE_LIST_KEY = 'task.lists';
 const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = 'task.selectedListId';
@@ -11,7 +11,9 @@ const listTitleElement = document.querySelector('[data-list-title]');
 export const listsContainer = document.querySelector('[data-lists]');
 export const tasksContainer = document.querySelector('[data-tasks]');
 
+// eslint-disable-next-line import/no-mutable-exports
 export let lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [{ id: '1607751397905', name: 'Default', tasks: [] }];
+// eslint-disable-next-line import/no-mutable-exports
 export let selectedListId = localStorage.getItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY);
 
 export function save() {
