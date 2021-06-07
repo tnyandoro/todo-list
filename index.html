@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>The MyTodo list</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/css/bootstrap5.css" />
+    <link rel="stylesheet" href="./dist/style.css" />
+  </head>
+
+  <body>
+    <h1 class="title">The My-Todo</h1>
+
+    <div class="all-tasks">
+      <h2 class="task-project-title">Projects</h2>
+      <ul class="task-project" data-projects></ul>
+
+      <form action="" data-new-project-form>
+        <input
+          type="text"
+          class="new project"
+          data-new-project-input
+          placeholder="new project name"
+          aria-label="new project name"
+        />
+        <button
+          type="submit"
+          class="btn btn-success btn-md create"
+          aria-label="create new project"
+        >
+          create new
+        </button>
+      </form>
+    </div>
+
+    <div class="card todo-project" data-project-display-container>
+      <div class="todo-header card-title">
+        <h2 class="project-title" data-project-title>Pray</h2>
+        <p class="notes">notes</p>
+        <p class="task-count" data-project-count>3 tasks remaining</p>
+      </div>
+
+      <div class="todo-body form-check">
+        <div class="tasks" data-tasks></div>
+
+        <div class="new-task-creator">
+          <form class="bs-components" action="" data-new-task-form>
+            <div class="form-group">
+              <input
+                type="text"
+                data-new-task-input
+                class="new task form-control"
+                placeholder="new task title"
+                aria-label="new task name"
+              />
+            </div>
+
+            <div class="form-group">
+              <input type="date" class="form-control" data-new-task-date />
+            </div>
+
+            <div class="form-group">
+              <textarea
+                data-new-task-description
+                id="task-description"
+                class="form-control"
+                placeholder="Add short description"
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="priority-check">Select Priority</label>
+              <select
+                id="priority-check"
+                class="form-select form-control"
+                data-new-task-priority
+              >
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+
+            <button
+              class="btn btn-success btn create"
+              aria-label="create new task"
+            >
+              Create Task
+            </button>
+          </form>
+
+          <div class="delete-stuff">
+            <button
+              class="btn btn-warning delete"
+              data-clear-complete-tasks-button
+            >
+              Clear completed tasks
+            </button>
+            <button class="btn btn-danger delete" data-delete-project-button>
+              Delete list
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <template id="task-template">
+      <div class="task">
+        <input type="checkbox" />
+        <label>
+          <span class="custom-checkbox"></span>
+        </label>
+        <div></div>
+      </div>
+    </template>
+    <!-- <script src="./src/index.js"></script> -->
+    <script src="./dist/bundle.js"></script>
+  </body>
+</html>
