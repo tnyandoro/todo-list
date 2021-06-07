@@ -53,23 +53,6 @@ function renderTaskCount(selectedProject) {
   projectCountElement.innerText = `${incompleteTaskCount} ${taskString} remaining`;
 }
 
-function editTask(task, label) {
-  newTaskInput.value = task.name;
-  newTaskDate.value = task.date;
-  newTaskPriority.value = task.priority;
-  newTaskDescription.value = task.description;
-  task.id = null;
-
-  newTaskForm.addEventListener('submit', () => {
-    task.name = newTaskInput.value;
-    task.date = newTaskDate.value;
-    task.priority = newTaskPriority.value;
-    task.description = newTaskDescription.value;
-    label.innerHTML = `${task.name}, ${task.date}, ${task.priority}, ${task.description}`;
-    saveAndRender();
-  });
-}
-
 function renderTasks(selectedProject) {
   selectedProject.tasks.forEach(task => {
     const taskElement = document.importNode(taskTemplate.content, true);
@@ -87,6 +70,7 @@ function renderTasks(selectedProject) {
     const editButton = document.createElement('button');
     editButton.innerText = 'Edit';
     editButton.classList.add('edit');
+    // eslint-disable-next-line no-use-before-define
     editButton.addEventListener('click', editTask(task, label));
     const todoTask = taskElement.querySelector('.todo');
     todoTask.append(editButton);
@@ -113,6 +97,23 @@ function render() {
 function saveAndRender() {
   save();
   render();
+}
+
+function editTask(task, label) {
+  newTaskInput.value = task.name;
+  newTaskDate.value = task.date;
+  newTaskPriority.value = task.priority;
+  newTaskDescription.value = task.description;
+  task.id = null;
+
+  newTaskForm.addEventListener('submit', () => {
+    task.name = newTaskInput.value;
+    task.date = newTaskDate.value;
+    task.priority = newTaskPriority.value;
+    task.description = newTaskDescription.value;
+    label.innerHTML = `${task.name}, ${task.date}, ${task.priority}, ${task.description}`;
+    saveAndRender();
+  });
 }
 
 function createProject(name) {
@@ -143,7 +144,7 @@ const createTask = (id, name, date, priority, description, complete) => {
   };
 };
 
-deleteProjectButton.addEventListener('click', e => {
+deleteProjectButton.addEventListener('click', () => {
   projects = projects.filter(project => project.id !== selectedProjectId);
   selectedProjectId = null;
   saveAndRender();
@@ -179,6 +180,7 @@ newProjectForm.addEventListener('submit', e => {
 });
 
 clearCompleteTasksButton.addEventListener('click', e => {
+  e.preventDefault();
   const selectedProject = projects.find(project => project.id === selectedProjectId);
   selectedProject.tasks = selectedProject.tasks.filter(task => !task.complete);
   saveAndRender();
